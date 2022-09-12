@@ -4,6 +4,7 @@
 *{
     box-sizing: border-box;
 }
+
 body{
     margin: 0;
     font-family: 'Roboto', sans-serif;
@@ -12,6 +13,7 @@ body{
 header nav a{
     color:#000;
     text-decoration: none;
+    grid-area: header;
 }
 
 header nav ul li a:hover{
@@ -28,14 +30,15 @@ nav{
     margin: 2rem auto;
     /*la til padding*/
     padding: 0 1rem;
-    max-width: 1200px;
     width: 100%;
-
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-areas:
+      "header nav nav",
+      "aside main main",
+      "footer footer footer" ;
 }
-
-
-
-
 
 main article{
     /*endret vidde bredde fra hva vi gjorde 05.08*/
@@ -43,6 +46,7 @@ main article{
     width: 100%;
     border: 1px solid #d9d9d9;
     padding: 1rem;
+    grid-area: main;
 }
 
 /*la til bredcrumbs og fjernet default CSSS på ul elementet med id breadcrumbs*/
@@ -50,8 +54,6 @@ main article{
     padding: 0;
     margin: 0;
 }
-
-
 
 #breadcrumbs li::after{
     content: ">";
@@ -101,7 +103,5 @@ footer{
     background-color: rgb(80, 80, 80);
     color: #fff;
     padding: 3rem 2rem;
+    grid-area: footer;
 }
-
-
-
